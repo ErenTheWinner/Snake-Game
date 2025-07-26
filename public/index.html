@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>🐍 Snake Game</h1>
+    <canvas id="game" width="400" height="400"></canvas>
+    <div id="score">Score: 0</div>
+    <div id="streak">Streak: 0 (Bonus: +0)</div>
+    
+    <div class="audio-controls">
+      <button id="musicToggle" onclick="toggleMusic()">🎵 Music: ON</button>
+      <button id="sfxToggle" onclick="toggleSFX()">🔊 SFX: ON</button>
+      <div class="volume-control">
+        <span>🔉</span>
+        <input type="range" id="volumeSlider" min="0" max="100" value="50" onchange="updateVolume()">
+      </div>
+    </div>
+    <div class="audio-status" id="audioStatus">Loading audio...</div>
+    
+    <div id="controls">Use arrow keys to move • Press P to pause • Press M for music</div>
+    
+    <div class="leaderboard">
+      <h3>🏆 Leaderboard (Top 5)</h3>
+      <ol id="leaderboard">
+        <li class="loading">Loading leaderboard...</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="game-over" id="gameOverModal">
+    <div class="game-over-content">
+      <h2>Game Over!</h2>
+      <p>Your Score: <span id="finalScore"></span></p>
+      <p>Streak Bonus: +<span id="streakBonus"></span></p>
+      <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+      <br>
+      <button id="submitBtn" onclick="submitScore()">Submit Score</button>
+      <button onclick="skipScore()">Skip</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
